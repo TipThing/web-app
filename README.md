@@ -7,6 +7,8 @@ Install these VSCode extensions:
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier Eslint](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint)
 
+For info on how the change log works, see [Standard Version](https://github.com/conventional-changelog/standard-version)
+
 Install and setup Husky for pre-commit hooks:
 
 ```bash

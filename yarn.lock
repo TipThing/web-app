@@ -665,6 +665,19 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tabler/icons-react@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.8.0.tgz#e5d0cde1d72a890e85d460d3b1c512ca025d563c"
+  integrity sha512-8d5nCsgIy6tVfu/mgwOnqgN4kgnLqj232f+VSHv/zie2PKlS6NEhkX5A3qB6/+xQ/y5Y0uiwXzjhzG+iM8whDQ==
+  dependencies:
+    "@tabler/icons" "2.8.0"
+    prop-types "^15.7.2"
+
+"@tabler/icons@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.8.0.tgz#4bdf611de9b8aca0dd8bce65ea79214f5be48b50"
+  integrity sha512-8diABuB3J+NEUtdwIXJF0bJSE5VpnnyzWeiZGFq/XlcTYJNEF+36ijiPNUGpsV/QXY6syesJKmmPkUUwD+LxdA==
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.9.tgz#df4907fc07a886922637b15e02d4cebc4c0021b2"
@@ -3556,7 +3569,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==

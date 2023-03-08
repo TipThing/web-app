@@ -1,10 +1,13 @@
 import '@/styles/globals.css';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
+import { ColorScheme, MantineProvider } from '@mantine/core';
+import ColorSchemeContext from './components/style/colorScheme/ColorSchemeContext';
+import { useState } from 'react';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  const [colorScheme, setColorScheme] = useState('light' as ColorScheme);
 
   return (
     <>
@@ -15,16 +18,17 @@ export default function App(props: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: 'dark',
-        }}
+      <ColorSchemeContext.Provider
+        value={{ colorScheme, onChange: setColorScheme }}
       >
-        <Component {...pageProps} />
-      </MantineProvider>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{ colorScheme }}
+        >
+          <Component {...pageProps} />
+        </MantineProvider>
+      </ColorSchemeContext.Provider>
     </>
   );
 }

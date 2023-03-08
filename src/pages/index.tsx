@@ -14,7 +14,7 @@ import {
   rem,
   createStyles,
 } from '@mantine/core';
-import DarkModeToggle from './components/style/colorScheme/DarkModeToggle';
+import DarkModeToggle from '../components/style/colorScheme/DarkModeToggle';
 
 const useStyles = createStyles((theme) => ({
   inner: {

@@ -3,11 +3,20 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ColorScheme, MantineProvider } from '@mantine/core';
 import ColorSchemeContext from './components/style/colorScheme/ColorSchemeContext';
-import { useState } from 'react';
+import { useLocalStorage, useWindowEvent } from '@mantine/hooks';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState('light' as ColorScheme);
+  const [colorScheme, setColorScheme] = useLocalStorage({
+    key: 'colorScheme',
+    defaultValue: 'light' as ColorScheme,
+  });
+
+  useWindowEvent('keydown', (event) => {
+    if (event.key === 'd' && (event.ctrlKey || event.metaKey)) {
+      setColorScheme((current) => (current === 'dark' ? 'light' : 'dark'));
+    }
+  });
 
   return (
     <>

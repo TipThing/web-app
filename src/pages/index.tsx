@@ -10,11 +10,86 @@ import {
   MediaQuery,
   Burger,
   useMantineTheme,
+  Group,
+  rem,
+  createStyles,
 } from '@mantine/core';
+import DarkModeToggle from '../components/style/colorScheme/DarkModeToggle';
+
+const useStyles = createStyles((theme) => ({
+  inner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '100%',
+
+    [theme.fn.smallerThan('sm')]: {
+      justifyContent: 'flex-start',
+    },
+  },
+
+  links: {
+    width: rem(260),
+
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  social: {
+    width: rem(260),
+
+    [theme.fn.smallerThan('sm')]: {
+      width: 'auto',
+      marginLeft: 'auto',
+    },
+  },
+
+  burger: {
+    marginRight: theme.spacing.md,
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  link: {
+    display: 'block',
+    lineHeight: 1,
+    padding: `${rem(8)} ${rem(12)}`,
+    borderRadius: theme.radius.sm,
+    textDecoration: 'none',
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[0]
+        : theme.colors.gray[7],
+    fontSize: theme.fontSizes.sm,
+    fontWeight: 500,
+
+    '&:hover': {
+      backgroundColor:
+        theme.colorScheme === 'dark'
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
+    },
+  },
+
+  linkActive: {
+    '&, &:hover': {
+      backgroundColor: theme.fn.variant({
+        variant: 'light',
+        color: theme.primaryColor,
+      }).background,
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+        .color,
+    },
+  },
+}));
 
 export default function Home() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const { classes } = useStyles();
   return (
     <>
       <Head>
@@ -58,20 +133,31 @@ export default function Home() {
         }
         header={
           <Header height={{ base: 50, md: 70 }} p="md">
-            <div
-              style={{ display: 'flex', alignItems: 'center', height: '100%' }}
-            >
+            <div className={classes.inner}>
               <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                 <Burger
                   opened={opened}
                   onClick={() => setOpened((o) => !o)}
                   size="sm"
                   color={theme.colors.gray[6]}
+                  className={classes.burger}
                   mr="xl"
                 />
               </MediaQuery>
+              <Group className={classes.links} spacing={5}>
+                <Text>Links Here</Text>
+              </Group>
 
-              <Text>Application header</Text>
+              <Text size={28}>Logo Here</Text>
+
+              <Group
+                spacing={0}
+                className={classes.social}
+                position="right"
+                noWrap
+              >
+                <DarkModeToggle />
+              </Group>
             </div>
           </Header>
         }

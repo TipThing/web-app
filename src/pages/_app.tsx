@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { ColorScheme, MantineProvider } from '@mantine/core';
 import ColorSchemeContext from '../components/style/colorScheme/ColorSchemeContext';
 import { useLocalStorage, useWindowEvent } from '@mantine/hooks';
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 export default function App(props: AppProps) {

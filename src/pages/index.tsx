@@ -15,6 +15,10 @@ import {
   createStyles,
 } from '@mantine/core';
 import DarkModeToggle from '../components/style/colorScheme/DarkModeToggle';
+import Navigation, {
+  LinksGroupProps,
+} from '../components/navigation/navigation';
+import { faDashboard, faGrip } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -86,10 +90,50 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const linkData: LinksGroupProps[] = [
+  {
+    label: 'Personal Dashboards',
+    icon: faDashboard,
+    color: 'blue',
+    initiallyOpened: true,
+    links: [
+      {
+        label: 'Dashboard',
+        link: '/dashboard',
+      },
+      {
+        label: 'Dashboard2',
+        link: '/dashboard2',
+      },
+    ],
+  },
+  {
+    label: 'Team Dashboards',
+    icon: faGrip,
+    color: 'yellow',
+    initiallyOpened: true,
+    links: [
+      {
+        label: 'Dashboard',
+        link: '/dashboard',
+      },
+      {
+        label: 'Dashboard2',
+        link: '/dashboard2',
+      },
+    ],
+  },
+];
+
 export default function Home() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
+
+  const links = linkData.map((item) => (
+    <Navigation key={item.label} {...item} />
+  ));
+
   return (
     <>
       <Head>
@@ -116,7 +160,7 @@ export default function Home() {
             hidden={!opened}
             width={{ sm: 200, lg: 300 }}
           >
-            <Text>Application navbar</Text>
+            <Navbar.Section grow>{links}</Navbar.Section>
           </Navbar>
         }
         aside={

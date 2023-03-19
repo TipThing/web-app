@@ -1,7 +1,8 @@
 import { ActionIcon } from '@mantine/core';
-import { IconMoon, IconSun } from '@tabler/icons-react';
 import { useContext } from 'react';
 import ColorSchemeContext from './ColorSchemeContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 export default function DarkModeToggle() {
   const colorSchemeContext = useContext(ColorSchemeContext);
@@ -10,14 +11,14 @@ export default function DarkModeToggle() {
   return (
     <ActionIcon
       variant="outline"
-      // color={dark ? 'yellow' : 'blue'}
+      color={dark ? 'yellow' : 'blue'}
       onClick={() => colorSchemeContext.onChange(dark ? 'light' : 'dark')}
       title="Toggle color scheme"
     >
       {dark ? (
-        <IconSun style={{ width: 18, height: 18 }} />
+        <FontAwesomeIcon icon={faSun} />
       ) : (
-        <IconMoon style={{ width: 18, height: 18 }} />
+        <FontAwesomeIcon icon={faMoon} />
       )}
     </ActionIcon>
   );

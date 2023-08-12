@@ -2,10 +2,10 @@
 
 import { Link } from '@nextui-org/link';
 import { Button } from '@nextui-org/button';
-import { Divider } from '@nextui-org/react';
+import { Divider, Tooltip } from '@nextui-org/react';
 import DashboardBlock from '@/components/homepage/components/content/dashboard-block';
 import React from 'react';
-import { CubesStackedIcon, GridIcon } from '@/components/icons';
+import { CubesStackedIcon, GridIcon, StarsIcon } from '@/components/icons';
 import clsx from 'clsx';
 import { Color } from '@/lib/types';
 import { mockSpaces } from '@/mocks/mock-spaces';
@@ -26,14 +26,40 @@ export const SidebarNavigation = () => {
           </Button>
         </Link>
         <Link href={`/`}>
-          <Button
-            fullWidth={true}
-            className={`items-center justify-start font-bold pl-2`}
-            variant="light"
-            startContent={<CubesStackedIcon size={18} />}
+          <Tooltip
+            content="View official and community dashboard templates."
+            placement={`bottom`}
+            delay={0}
+            closeDelay={0}
+            className={`max-w-[250px]`}
           >
-            Templates
-          </Button>
+            <Button
+              fullWidth={true}
+              className={`items-center justify-start font-bold pl-2`}
+              variant="light"
+              startContent={<CubesStackedIcon size={18} />}
+            >
+              Templates
+            </Button>
+          </Tooltip>
+        </Link>
+        <Link href={`/`}>
+          <Tooltip
+            content="Explore community dashboards, apps, integrations and plugins."
+            placement={`bottom`}
+            delay={0}
+            closeDelay={0}
+            className={`max-w-[250px]`}
+          >
+            <Button
+              fullWidth={true}
+              className={`items-center justify-start font-bold pl-2`}
+              variant="light"
+              startContent={<StarsIcon size={18} />}
+            >
+              Explore
+            </Button>
+          </Tooltip>
         </Link>
         <Divider />
         <span className={`text-md font-bold ml-1`}>Spaces</span>

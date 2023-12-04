@@ -21,7 +21,7 @@
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "colord": "^2.9.3",
-    "eslint": "8.41.0",
+    "eslint": "8.55.0",
     "eslint-config-next": "14.0.1",
     "framer-motion": "^10.15.0",
     "intl-messageformat": "^10.1.0",
